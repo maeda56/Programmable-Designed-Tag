@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>p5.js Polygon Shape Example</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+</head>
+<body>
+  <script>
+    let slider1, slider2, slider3;
+
+    function setup() {
+      createCanvas(400, 400);
+      slider1 = createSlider(0, 255, 100);
+      slider1.position(10, height + 10);
+      
+      slider2 = createSlider(10, 200, 50);
+      slider2.position(10, height + 40);
+      
+      slider3 = createSlider(3, 30, 3); // 角数を設定（3〜30）
+      slider3.position(10, height + 70);
+    }
+
+    function draw() {
+      background(220);
+      
+      let colorValue = slider1.value();
+      let sizeValue = slider2.value();
+      let sides = slider3.value(); // 多角形の角数
+      
+      fill(colorValue, 150, 200);
+      noStroke();
+      drawPolygon(width / 2, height / 2, sizeValue, sides);
+    }
+
+    function drawPolygon(x, y, radius, npoints) {
+      let angle = TWO_PI / npoints;
+      beginShape();
+      for (let i = 0; i < npoints; i++) {
+        let px = x + cos(i * angle) * radius;
+        let py = y + sin(i * angle) * radius;
+        vertex(px, py);
+      }
+      endShape(CLOSE);
+    }
+  </script>
+</body>
+</html>
