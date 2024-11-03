@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>p5.js Soccer Ball Illustration</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+</head>
+<body>
+  <script>
+    function setup() {
+        createCanvas(400, 400);
+        background(255);
+
+        // 線の太さを設定
+        strokeWeight(5); // 5ピクセルの太さで描画
+      
+        // 2つ目の大きなひし形
+        beginShape();
+        vertex(200, 150); // 上の頂点
+        vertex(300, 200); // 右の頂点
+        vertex(200, 250); // 下の頂点
+        vertex(100, 200); // 左の頂点
+        endShape(CLOSE);
+      
+        // 1つ目の小さなひし形（2つ目のひし形の中に配置）
+        beginShape();
+        vertex(200, 175); // 上の頂点
+        vertex(250, 200); // 右の頂点
+        vertex(200, 225); // 下の頂点
+        vertex(150, 200); // 左の頂点
+        endShape(CLOSE);
+      }
+  </script>
+</body>
+</html>
